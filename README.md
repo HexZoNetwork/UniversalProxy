@@ -1,7 +1,5 @@
 # 🚀 Universal API Proxy by HexZo Not Devz
 
-![HexZo Banner](https://via.placeholder.com/1200x400/007bff/ffffff?text=Universal+API+Proxy+by+HexZo+Not+Devz)
-
 > **"API fleksibel untuk semua kebutuhan - dari pelajar untuk developer"**  
 > **Dibuat dengan ❤️ oleh HexZo Not Devz**
 ## 🎁 API Langsung Jika Malas Deploy/Run
@@ -16,7 +14,6 @@
 - [🔧 Instalasi](#-instalasi)
 - [💡 Contoh Penggunaan](#-contoh-penggunaan)
 - [🛡️ Keamanan](#-keamanan)
-- [📞 Kontak](#-kontak)
 
 ## 🌟 About
 

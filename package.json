@@ -10,9 +10,9 @@
     "test": "echo 'Testing universal proxy...'",
     "git:init": "git init",
     "git:add": "git add .",
-    "git:commit": "git commit -m 'Update workspace'",
-    "git:push": "git push origin main",
-    "git:sync": "git add . && git commit -m 'Sync workspace' && git push origin main"
+    "git:commit": "git commit -m 'HexZo Update'",
+    "git:push": "git push -u origin main --force",
+    "git:sync": "git add . && git commit -m \"Sync workspace\" && git push -u origin main --force && git pull origin main --allow-unrelated-histories && git push -u origin main && git checkout -b feature/universal-proxy-update && git push -u origin feature/universal-proxy-update"
   },
   "keywords": [
     "api",
