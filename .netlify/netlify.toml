@@ -1,18 +1,12 @@
 functionsDirectory = "C:\\Users\\windows\\3D Objects\\Backup\\api-proxy\\netlify\\functions"
 functionsDirectoryOrigin = "config-v1"
 headersOrigin = "config"
-redirectsOrigin = "config"
 plugins = []
 redirects = []
 
-[functions]
-
-[functions."*"]
-node_bundler = "esbuild"
-
 [build]
-publish = "C:\\Users\\windows\\3D Objects\\Backup\\api-proxy\\netlify\\functions"
-publishOrigin = "config"
+publish = "C:\\Users\\windows\\3D Objects\\Backup\\api-proxy"
+publishOrigin = "default"
 functions = "C:\\Users\\windows\\3D Objects\\Backup\\api-proxy\\netlify\\functions"
 
 [build.environment]
@@ -28,6 +22,11 @@ functions = "C:\\Users\\windows\\3D Objects\\Backup\\api-proxy\\netlify\\functio
 [build.processing.js]
 
 [build.services]
+
+[functions]
+
+[functions."*"]
+node_bundler = "esbuild"
 
 [[headers]]
 for = "/*"
