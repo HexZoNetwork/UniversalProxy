@@ -75,7 +75,7 @@ class UniversalAPIProxy {
         headers: "httpbin.org/headers"
       },
       fun: {
-        joke: "api.jokeapi.dev/joke/Any",
+        joke: "v2.jokeapi.dev/joke/Any",
         cat_fact: "catfact.ninja/fact",
         dog_image: "dog.ceo/api/breeds/image/random",
         meme: "meme-api.herokuapp.com/gimme",
@@ -272,7 +272,7 @@ class UniversalAPIProxy {
           statusCode: 200,
           headers: { ...this.getCORSHeaders(), 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            message: "Universal API Proxy - Ready to serve",
+            message: "Universal API Proxy - HexZo Not Devz",
             usage: {
               proxy: "/.netlify/functions/proxy?web=https://api.example.com",
               built_in: "/.netlify/functions/proxy?api=info.ip",
@@ -328,7 +328,10 @@ class UniversalAPIProxy {
 
       const response = await this.universalFetch(targetUrl, fetchOptions);
       const data = await this.parseResponse(response);
-      
+            this.log('success', `Request to ${targetUrl} was successful`, {
+        url: targetUrl,
+        statusCode: response.status
+      });
       const responseHeaders = {
         ...this.getCORSHeaders(),
         'Content-Type': response.headers.get('content-type') || 'application/json'
