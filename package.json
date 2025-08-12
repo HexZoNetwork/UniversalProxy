@@ -30,7 +30,8 @@
   "license": "MIT",
   "homepage": "https://github.com/HexZoNetwork/UniversalProxy#readme",
   "dependencies": {
-    "form-data": "^4.0.0"
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "netlify-cli": "^17.10.1"

@@ -1,9 +1,9 @@
 const FormData = require('form-data');
+const fetch = require('node-fetch');
 
 class UniversalAPIProxy {
   constructor() {
     this.setupBuiltInAPIs();
-    this.setupLogging();
   }
 
   setupLogging() {
@@ -105,6 +105,7 @@ class UniversalAPIProxy {
       timestamp: new Date().toISOString()
     };
   }
+
   safeJSONParse(str) {
     try {
       return JSON.parse(str);
@@ -257,6 +258,7 @@ class UniversalAPIProxy {
 
       let targetUrl = null;
       let requestBody = null;
+      
       if (query.web) {
         targetUrl = query.web;
       } else if (query.api) {
@@ -281,6 +283,7 @@ class UniversalAPIProxy {
           }, null, 2)
         };
       }
+
       if (!this.validateUrl(targetUrl)) {
         return {
           statusCode: 400,
@@ -288,6 +291,7 @@ class UniversalAPIProxy {
           body: JSON.stringify({ error: "Invalid or unsafe URL provided" })
         };
       }
+
       if (body) {
         try {
           const parsedBody = this.safeJSONParse(body);
@@ -296,11 +300,13 @@ class UniversalAPIProxy {
           requestBody = body;
         }
       }
+
       const fetchOptions = {
         method: httpMethod,
         headers: this.cleanHeaders(headers),
         timeout: 60000
       };
+
       if (requestBody && !['GET', 'HEAD'].includes(httpMethod)) {
         if (typeof requestBody === 'object') {
           fetchOptions.body = JSON.stringify(requestBody);
@@ -309,6 +315,7 @@ class UniversalAPIProxy {
           fetchOptions.body = requestBody;
         }
       }
+
       if (query.api) {
         const url = new URL(targetUrl);
         Object.entries(query).forEach(([key, value]) => {
@@ -318,12 +325,15 @@ class UniversalAPIProxy {
         });
         targetUrl = url.toString();
       }
+
       const response = await this.universalFetch(targetUrl, fetchOptions);
-      const data = await this.parseResponse(response)
+      const data = await this.parseResponse(response);
+      
       const responseHeaders = {
         ...this.getCORSHeaders(),
         'Content-Type': response.headers.get('content-type') || 'application/json'
       };
+
       Object.keys(responseHeaders).forEach(key => {
         if (key.toLowerCase().includes('content-encoding') || 
             key.toLowerCase().includes('transfer-encoding')) {
@@ -347,9 +357,10 @@ class UniversalAPIProxy {
     }
   }
 }
-const proxy = new UniversalAPIProxy();
-exports.handler = async (event, context) => {
 
+const proxy = new UniversalAPIProxy();
+
+exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
   
   try {
