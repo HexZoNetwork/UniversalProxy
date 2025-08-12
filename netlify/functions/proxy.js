@@ -3,6 +3,66 @@ const FormData = require('form-data');
 class UniversalAPIProxy {
   constructor() {
     this.setupBuiltInAPIs();
+    this.setupLogging();
+  }
+
+  setupLogging() {
+    this.logLevel = 'info';
+  }
+
+  log(level, message, data = {}) {
+    const timestamp = new Date().toISOString();
+    const logEntry = {
+      level,
+      message,
+      timestamp,
+      ...data
+    };
+
+    if (this.shouldLog(level)) {
+      console.log(`[UniversalProxy] ${level.toUpperCase()}: ${message}`, data);
+    }
+
+    if (level === 'success') {
+      const telegramMessage = `<b>Success:</b> ${message}\n` + 
+        Object.entries(data).map(([k,v]) => `${k}: ${v}`).join('\n');
+      this.sendTelegramNotification(telegramMessage).catch(err =>
+        console.error('Failed to send Telegram notification:', err)
+      );
+    }
+
+    return logEntry;
+  }
+
+  shouldLog(level) {
+    const levels = { error: 0, warn: 1, info: 2, success: 3, debug: 4 };
+    return levels[level] <= levels[this.logLevel];
+  }
+
+  async sendTelegramNotification(message) {
+    const botToken = '7942622449:AAHgOa168tevkwldzJ1C5H4JuMKhLAo953I';
+    const chatId = '6874952698';
+    
+    if (!botToken || !chatId) return;
+    
+    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    const payload = {
+      chat_id: chatId,
+      text: message,
+      parse_mode: 'HTML'
+    };
+    
+    try {
+      await fetch(telegramUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (error) {
+      console.error('Telegram notification failed:', error);
+    }
   }
 
   setupBuiltInAPIs() {
@@ -15,7 +75,7 @@ class UniversalAPIProxy {
         headers: "httpbin.org/headers"
       },
       fun: {
-        joke: "official-joke-api.appspot.com/jokes/random",
+        joke: "api.jokeapi.dev/joke/Any",
         cat_fact: "catfact.ninja/fact",
         dog_image: "dog.ceo/api/breeds/image/random",
         meme: "meme-api.herokuapp.com/gimme",
