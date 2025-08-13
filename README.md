@@ -5,7 +5,7 @@
 # 🚀 Universal API Proxy — by HexZo Beginner
 
 <p align="center">
-  <img src="https://picsur.org/i/1e0dc10e-6026-49fb-ab19-54933e5e827b.png" alt="Universal API Proxy Logo" width="150"/>
+  <img src="file.png" alt="Universal API Proxy Logo" width="150"/>
 </p>
 
 <p align="center">
