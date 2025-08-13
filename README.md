@@ -6,7 +6,7 @@
 > **Dibuat dengan ❤️ oleh HexZo Not Devz**
 ## 🎁 API Langsung Jika Malas Deploy/Run
 ```bash
-
+https://proxyhexzo.netlify.app/.netlify/functions/proxy
 ```
 ## 📋 Daftar Isi
 - [🌟 Tentang](#-tentang)
