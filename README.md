@@ -4,7 +4,7 @@
 > **Dibuat dengan ❤️ oleh HexZo Not Devz**
 ## 🎁 API Langsung Jika Malas Deploy/Run
 ```bash
-
+https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=fun.joke
 ```
 ## 📋 Daftar Isi
 - [🌟 Tentang](#-tentang)
@@ -27,8 +27,6 @@ Dibuat oleh **HexZo Not Devz**, proxy ini menawarkan:
 
 ## ✨ Fitur Unggulan
 
-| Fitur | Deskripsi |
-|-------|-----------|
 | 🔗 **Universal** | Bekerja dengan REST, GraphQL, SOAP, XML, JSON |
 | 🌐 **CORS Enabled** | Full support untuk semua origin |
 | ⚡ **Cepat** | Timeout 30 detik dengan retry otomatis |
@@ -134,10 +132,10 @@ print(response.json())
 ### cURL
 ```bash
 # Mendapatkan informasi IP
-curl "https://your-domain.netlify.app/.netlify/functions/universal-proxy?api=info.ip"
+curl "https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=info.ip"
 
 # POST request dengan data
-curl -X POST "https://your-domain.netlify.app/.netlify/functions/universal-proxy?web=https://httpbin.org/post" \
+curl -X POST "https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https://httpbin.org/post" \
   -H "Content-Type: application/json" \
   -d '{"pesan": "Hello dari Indonesia!"}'
 ```
