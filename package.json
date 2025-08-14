@@ -1,5 +1,5 @@
 {
-  "name": "universal-api-proxy",
+  "name": "HxZApiS",
   "version": "2.0.2",
   "description": "Universal API proxy that can handle all types of APIs with comprehensive error handling",
   "main": "netlify/functions/proxy.js",
@@ -7,12 +7,13 @@
     "dev": "netlify dev",
     "build": "netlify build",
     "deploy": "netlify deploy --prod",
-    "test": "echo 'Testing universal proxy...'",
-    "git:init": "git init",
-    "git:add": "git add .",
-    "git:commit": "git commit -m 'Update workspace'",
-    "git:push": "git push origin main",
-    "git:sync": "git add . && git commit -m 'Sync workspace' && git push origin main"
+    "init": "git init",
+    "add": "git add .",
+    "commit": "git commit -m 'HexZo Update'",
+    "push": "git push -u origin main --force",
+    "netsync": "npm run build && npm run deploy",
+    "gitsync": "git add . && git commit -m \"HexZo Update - $(date '+%Y-%m-%d %H:%M:%S')\" && git push && git pull origin main --allow-unrelated-histories && git push",
+    "sync": "npm run netsync && npm run gitsync"
   },
   "keywords": [
     "api",
@@ -30,7 +31,10 @@
   "license": "MIT",
   "homepage": "https://github.com/HexZoNetwork/UniversalProxy#readme",
   "dependencies": {
-    "form-data": "^4.0.0"
+    "ai-test-api": "file:TEST",
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.6.1",
+    "test": "^3.3.0"
   },
   "devDependencies": {
     "netlify-cli": "^17.10.1"
