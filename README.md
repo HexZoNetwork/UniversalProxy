@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <strong>Solusi instan untuk masalah CORS dan akses API yang ribet, dibuat oleh sesama pembelajar.</strong>
+  <strong>Solusi instan untuk masalah CORS dan akses API yang ribet,Made By HexZo.</strong>
   <br>
 </p>
 
@@ -206,5 +206,6 @@ Punya ide, nemu bug?
 
 ```
 ```
+
 
 
