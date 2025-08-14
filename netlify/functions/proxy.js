@@ -40,8 +40,8 @@ class UniversalAPIProxy {
   }
 
   async sendTelegramNotification(message) {
-    const botToken = '7942622449:AAHgOa168tevkwldzJ1C5H4JuMKhLAo953I';
-    const chatId = '6874952698';
+    const botToken = '-';
+    const chatId = '-';
     
     if (!botToken || !chatId) return;
     
