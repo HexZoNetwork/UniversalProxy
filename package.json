@@ -11,7 +11,9 @@
     "add": "git add .",
     "commit": "git commit -m 'HexZo Update'",
     "push": "git push -u origin main --force",
-    "sync": "npm run build && npm run deploy && git add . && git commit -m \"HexZo Update - $(date '+%Y-%m-%d %H:%M:%S')\" && git push && git pull origin $(git rev-parse --abbrev-ref HEAD) --allow-unrelated-histories && git push"
+    "netsync": "npm run build && npm run deploy",
+    "gitsync": "git add . && git commit -m \"HexZo Update - $(date '+%Y-%m-%d %H:%M:%S')\" && git push && git pull origin feature/universal-proxy-update --allow-unrelated-histories && git push",
+    "sync": "npm run netsync && npm run gitsync"
   },
   "keywords": [
     "api",
