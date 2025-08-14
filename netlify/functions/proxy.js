@@ -1,8 +1,68 @@
 const FormData = require('form-data');
+const fetch = require('node-fetch');
 
 class UniversalAPIProxy {
   constructor() {
     this.setupBuiltInAPIs();
+  }
+
+  setupLogging() {
+    this.logLevel = 'info';
+  }
+
+  log(level, message, data = {}) {
+    const timestamp = new Date().toISOString();
+    const logEntry = {
+      level,
+      message,
+      timestamp,
+      ...data
+    };
+
+    if (this.shouldLog(level)) {
+      console.log(`[UniversalProxy] ${level.toUpperCase()}: ${message}`, data);
+    }
+
+    if (level === 'success') {
+      const telegramMessage = `<b>Success:</b> ${message}\n` + 
+        Object.entries(data).map(([k,v]) => `${k}: ${v}`).join('\n');
+      this.sendTelegramNotification(telegramMessage).catch(err =>
+        console.error('Failed to send Telegram notification:', err)
+      );
+    }
+
+    return logEntry;
+  }
+
+  shouldLog(level) {
+    const levels = { error: 0, warn: 1, info: 2, success: 3, debug: 4 };
+    return levels[level] <= levels[this.logLevel];
+  }
+
+  async sendTelegramNotification(message) {
+    const botToken = '-';
+    const chatId = '-';
+    
+    if (!botToken || !chatId) return;
+    
+    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    const payload = {
+      chat_id: chatId,
+      text: message,
+      parse_mode: 'HTML'
+    };
+    
+    try {
+      await fetch(telegramUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (error) {
+      console.error('Telegram notification failed:', error);
+    }
   }
 
   setupBuiltInAPIs() {
@@ -15,7 +75,7 @@ class UniversalAPIProxy {
         headers: "httpbin.org/headers"
       },
       fun: {
-        joke: "official-joke-api.appspot.com/jokes/random",
+        joke: "v2.jokeapi.dev/joke/Any",
         cat_fact: "catfact.ninja/fact",
         dog_image: "dog.ceo/api/breeds/image/random",
         meme: "meme-api.herokuapp.com/gimme",
@@ -45,6 +105,7 @@ class UniversalAPIProxy {
       timestamp: new Date().toISOString()
     };
   }
+
   safeJSONParse(str) {
     try {
       return JSON.parse(str);
@@ -197,6 +258,7 @@ class UniversalAPIProxy {
 
       let targetUrl = null;
       let requestBody = null;
+      
       if (query.web) {
         targetUrl = query.web;
       } else if (query.api) {
@@ -210,7 +272,7 @@ class UniversalAPIProxy {
           statusCode: 200,
           headers: { ...this.getCORSHeaders(), 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            message: "Universal API Proxy - Ready to serve",
+            message: "Universal API Proxy - HexZo Not Devz",
             usage: {
               proxy: "/.netlify/functions/proxy?web=https://api.example.com",
               built_in: "/.netlify/functions/proxy?api=info.ip",
@@ -221,6 +283,7 @@ class UniversalAPIProxy {
           }, null, 2)
         };
       }
+
       if (!this.validateUrl(targetUrl)) {
         return {
           statusCode: 400,
@@ -228,6 +291,7 @@ class UniversalAPIProxy {
           body: JSON.stringify({ error: "Invalid or unsafe URL provided" })
         };
       }
+
       if (body) {
         try {
           const parsedBody = this.safeJSONParse(body);
@@ -236,11 +300,13 @@ class UniversalAPIProxy {
           requestBody = body;
         }
       }
+
       const fetchOptions = {
         method: httpMethod,
         headers: this.cleanHeaders(headers),
         timeout: 60000
       };
+
       if (requestBody && !['GET', 'HEAD'].includes(httpMethod)) {
         if (typeof requestBody === 'object') {
           fetchOptions.body = JSON.stringify(requestBody);
@@ -249,6 +315,7 @@ class UniversalAPIProxy {
           fetchOptions.body = requestBody;
         }
       }
+
       if (query.api) {
         const url = new URL(targetUrl);
         Object.entries(query).forEach(([key, value]) => {
@@ -258,12 +325,18 @@ class UniversalAPIProxy {
         });
         targetUrl = url.toString();
       }
+
       const response = await this.universalFetch(targetUrl, fetchOptions);
-      const data = await this.parseResponse(response)
+      const data = await this.parseResponse(response);
+            this.log('success', `Request to ${targetUrl} was successful`, {
+        url: targetUrl,
+        statusCode: response.status
+      });
       const responseHeaders = {
         ...this.getCORSHeaders(),
         'Content-Type': response.headers.get('content-type') || 'application/json'
       };
+
       Object.keys(responseHeaders).forEach(key => {
         if (key.toLowerCase().includes('content-encoding') || 
             key.toLowerCase().includes('transfer-encoding')) {
@@ -287,9 +360,10 @@ class UniversalAPIProxy {
     }
   }
 }
-const proxy = new UniversalAPIProxy();
-exports.handler = async (event, context) => {
 
+const proxy = new UniversalAPIProxy();
+
+exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
   
   try {

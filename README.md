@@ -1,206 +1,218 @@
-# 🚀 Universal API Proxy by HexZo Not Devz
 
-![HexZo Banner](https://via.placeholder.com/1200x400/007bff/ffffff?text=Universal+API+Proxy+by+HexZo+Not+Devz)
+-----
 
-> **"API fleksibel untuk semua kebutuhan - dari pelajar untuk developer"**  
-> **Dibuat dengan ❤️ oleh HexZo Not Devz**
-## 🎁 API Langsung Jika Malas Deploy/Run
-```bash
+
+# 🚀 Universal API Proxy — by HexZo Beginner
+
+<p align="center">
+  <img src="file.png" alt="Universal API Proxy Logo" width="150"/>
+</p>
+
+<p align="center">
+  <strong>Solusi instan untuk masalah CORS dan akses API yang ribet, dibuat oleh sesama pembelajar.</strong>
+  <br />
+  <em>"Dari pelajar, untuk developer."</em>
+</p>
+
+<p align="center">
+  <a href="https://github.com/HexZoNetwork/UniversalProxy/stargazers"><img src="https://img.shields.io/github/stars/HexZoNetwork/UniversalProxy?style=for-the-badge&logo=github&color=gold" alt="GitHub Stars"></a>
+  <a href="https://github.com/HexZoNetwork/UniversalProxy/issues"><img src="https://img.shields.io/github/issues/HexZoNetwork/UniversalProxy?style=for-the-badge&logo=github&color=red" alt="GitHub Issues"></a>
+  <a href="https://t.me/hexzo_not_devz"><img src="https://img.shields.io/badge/Komunitas-Telegram-blue?style=for-the-badge&logo=telegram" alt="Telegram Community"></a>
+</p>
+
+---
+
+## 🌟 Kenapa Pakai Proxy Ini?
+
+Gue bikin ini karena sering banget (dan mungkin Anda juga) mentok sama masalah-masalah ini:
+* **Benci Error CORS:** Capek lihat error `Cross-Origin Resource Sharing` di console? Proxy ini solusinya.
+* **Males Setup Backend:** Butuh data dari API publik tapi males bikin server sendiri cuma buat `fetch`? Pakai ini aja.
+* **Eksplorasi & Belajar:** Cocok banget buat yang lagi belajar ngoding dan mau coba-coba berbagai macam API tanpa ribet.
+* **Prototipe Cepat:** Butuh bukti konsep atau mau bikin demo cepat? Langsung hajar!
+
+## ⚡ API Siap Pakai (Live Demo)
+
+Gak perlu instalasi. Langsung pakai endpoint publik di bawah ini untuk semua kebutuhan Anda.
 
 ```
-## 📋 Daftar Isi
-- [🌟 Tentang](#-tentang)
-- [✨ Fitur Unggulan](#-fitur-unggulan)
-- [🚀 Cara Menggunakan](#-cara-menggunakan)
-- [📡 API Built-in](#-api-built-in)
-- [🔧 Instalasi](#-instalasi)
-- [💡 Contoh Penggunaan](#-contoh-penggunaan)
-- [🛡️ Keamanan](#-keamanan)
-- [📞 Kontak](#-kontak)
 
-## 🌟 About
+[https://proxyhexzo.netlify.app/.netlify/functions/proxy](https://proxyhexzo.netlify.app/.netlify/functions/proxy)
 
-**Universal API Proxy by HexZo Not Devz** adalah solusi proxy API yang dirancang khusus untuk developer Indonesia yang membutuhkan fleksibilitas maksimal dalam mengakses berbagai jenis API tanpa ribet.
-
-Dibuat oleh **HexZo Not Devz**, proxy ini menawarkan:
-- ✅ Kompatibilitas universal dengan semua jenis API
-- ✅ Error handling yang ramah untuk developer Indonesia
-- ✅ Dokumentasi dalam bahasa yang mudah dipahami
-- ✅ Support untuk komunitas developer lokal
+````
+**Contoh Cepat:**
+```bash
+# Mendapatkan fakta kucing acak
+curl "[https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=fun.cat_fact](https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=fun.cat_fact)"
+````
 
 ## ✨ Fitur Unggulan
 
 | Fitur | Deskripsi |
-|-------|-----------|
-| 🔗 **Universal** | Bekerja dengan REST, GraphQL, SOAP, XML, JSON |
-| 🌐 **CORS Enabled** | Full support untuk semua origin |
-| ⚡ **Cepat** | Timeout 30 detik dengan retry otomatis |
-| 🛡️ **Aman** | Validasi input dan sanitasi otomatis |
-| 📊 **Monitoring** | Error tracking yang detail |
-| 🎯 **Presisi** | URL validation yang ketat |
+|:--- |:--- |
+| 🔗 **Fleksibel** | Bisa meneruskan request ke mayoritas API publik (REST, JSON, XML). |
+| 🌐 **Anti-CORS** | Didesain khusus untuk jadi "obat" masalah CORS dari origin mana pun. |
+| 🚀 **Cukup Cepat**| Dijalankan di infrastruktur Netlify yang cepat dengan logic *retry* otomatis. |
+| 🛡️ **Validasi Dasar** | Memvalidasi URL tujuan untuk mencegah pemanggilan ke endpoint yang tidak aman. |
+| 👨‍💻 **Ramah Pemula** | Gampang dipakai, dokumentasi jelas, dan ada API bawaan yang seru. |
 
-## 🚀 Cara Menggunakan
+-----
 
-### 1. Instalasi Cepat
-```bash
-# Clone repository
-git clone https://github.com/HexZoNetwork/UniversalProxy.git
-cd UniversalProxy
+## 🚀 Cara Penggunaan
 
-# Install dependencies
-npm install
+Ada dua cara utama: pakai **API bawaan** atau **proxy ke URL custom**.
 
-# Jalankan development server
-npm run dev
-```
+### 1\. Menggunakan API Bawaan
 
-### 2. Deploy ke Netlify
-```bash
-# Deploy otomatis
-netlify deploy --prod
-```
+Pakai parameter `?api=` diikuti nama API yang tersedia.
 
-## 📡 API Built-in
-
-### 🔍 Info APIs
-```bash
-# IP & Geolokasi
-GET /.netlify/functions/universal-proxy?api=info.ip
-GET /.netlify/functions/universal-proxy?api=info.geoip
-
-# Waktu & Headers
-GET /.netlify/functions/universal-proxy?api=info.time
-GET /.netlify/functions/universal-proxy?api=info.headers
-```
-
-### 😄 Fun APIs
-```bash
-# Hiburan
-GET /.netlify/functions/universal-proxy?api=fun.joke
-GET /.netlify/functions/universal-proxy?api=fun.cat_fact
-GET /.netlify/functions/universal-proxy?api=fun.meme
-```
-
-### 💻 Dev APIs
-```bash
-# GitHub
-GET /.netlify/functions/universal-proxy?api=dev.github_user&username=octocat
-GET /.netlify/functions/universal-proxy?api=dev.github_repos&username=octocat
-
-# Testing
-GET /.netlify/functions/universal-proxy?api=dev.jsonplaceholder_post
-```
-
-### 🌦️ Weather APIs
-```bash
-# Cuaca
-GET /.netlify/functions/universal-proxy?api=weather.current&location=Jakarta
-GET /.netlify/functions/universal-proxy?api=weather.forecast&lat=-6.2&lon=106.8
-```
-
-## 💡 Contoh Penggunaan
-
-### JavaScript (Browser)
 ```javascript
-// Contoh 1: Mendapatkan IP
-fetch('/.netlify/functions/universal-proxy?api=info.ip')
+// Mendapatkan info IP publik
+fetch('[https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=info.ip](https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=info.ip)')
   .then(res => res.json())
-  .then(data => console.log('IP Anda:', data.ip));
+  .then(data => console.log(data));
+```
 
-// Contoh 2: POST request
-fetch('/.netlify/functions/universal-proxy?web=https://jsonplaceholder.typicode.com/posts', {
+### 2\. Proxy ke URL Kustom
+
+Pakai parameter `?web=` untuk meneruskan request ke URL mana pun.
+
+```javascript
+// Melakukan POST request ke API testing
+fetch('[https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https://jsonplaceholder.typicode.com/posts](https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https://jsonplaceholder.typicode.com/posts)', {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    title: 'Post dari HexZo',
-    body: 'Hello dari Indonesia!',
-    userId: 1
-  })
+  body: JSON.stringify({ title: 'Coba POST' })
 })
 .then(res => res.json())
-.then(data => console.log('Response:', data));
+.then(data => console.log(data));
+```
+
+-----
+
+## 🔧 Instalasi (Self-Hosting)
+
+Kalau Anda mau proxy ini berjalan di akun Netlify pribadi.
+
+**Prasyarat:**
+
+  * Node.js v18+
+  * Akun GitHub & Netlify (yang gratisan cukup)
+
+**Langkah-langkah:**
+
+1.  **Fork** repository ini.
+2.  Di dashboard Netlify, impor proyek dari repository yang baru Anda fork.
+3.  **(PENTING)** Atur **Environment Variables** berikut di `Site settings > Build & deploy > Environment` jika mau pakai notifikasi Telegram:
+      * `TELEGRAM_BOT_TOKEN`: Token bot Telegram Anda.
+      * `TELEGRAM_CHAT_ID`: ID chat tujuan notifikasi.
+4.  Klik **"Deploy site"**. Selesai\! Anda punya URL proxy pribadi.
+
+-----
+
+## 🛡️ Keamanan & Batasan (Harap Dibaca\!)
+
+Proyek ini dibuat untuk belajar dan development. Penting untuk tahu batasannya.
+
+| Fitur | Status | Catatan |
+|:--- |:---:|:--- |
+| **URL Validation** | ✅ | Hanya URL `http` & `https` valid yang diproses. |
+| **Header Filtering** | ✅ | Beberapa header dari klien disaring untuk keamanan dasar. |
+| **Timeout Protection**| ✅ | Fungsi akan timeout sesuai batas Netlify (sekitar 10 detik). |
+| **Rate Limiting** | ❌ | **BELUM ADA.** Jangan gunakan untuk aplikasi production yang penting. |
+
+### 🚨 **Peringatan Keras**
+
+Proxy publik yang disediakan **TIDAK MEMILIKI RATE LIMIT**. Artinya, siapa saja bisa memakainya sepuasnya. Gunakan dengan bijak untuk belajar dan prototipe. **Penyalahgunaan akan membuat IP Anda diblokir.**
+
+-----
+
+## 📚 Referensi & Contoh Lengkap
+
+\<details\>
+\<summary\>\<strong\>📂 Klik untuk melihat daftar lengkap API Bawaan\</strong\>\</summary\>
+
+### 🔍 Info
+
+  - **IP Address:** `?api=info.ip`
+  - **Geo Location:** `?api=info.geoip`
+  - **Time:** `?api=info.time`
+  - **Request Headers:** `?api=info.headers`
+
+### 😄 Fun
+
+  - **Joke:** `?api=fun.joke`
+  - **Cat Fact:** `?api=fun.cat_fact`
+  - **Dog Image:** `?api=fun.dog_image`
+  - **Meme:** `?api=fun.meme`
+
+### 💻 Dev
+
+  - **GitHub User:** `?api=dev.github_user&username={nama_user}`
+  - **GitHub Repos:** `?api=dev.github_repos&username={nama_user}`
+  - **JSONPlaceholder Post:** `?api=dev.jsonplaceholder_post&id={post_id}`
+  - **HTTPBin Test:** `?api=dev.httpbin`
+
+### 🌦️ Cuaca
+
+  - **Current Weather:** `?api=weather.current&location={kota}`
+  - **Forecast:** `?api=weather.forecast&lat={latitude}&lon={longitude}`
+
+\</details\>
+
+\<details\>
+\<summary\>\<strong\>💻 Klik untuk melihat Contoh Kode Lengkap (JS, Python, cURL)\</strong\>\</summary\>
+
+### JavaScript (Browser)
+
+```javascript
+const API_BASE = '[https://proxyhexzo.netlify.app/.netlify/functions/proxy](https://proxyhexzo.netlify.app/.netlify/functions/proxy)';
+
+// GET GitHub user info
+fetch(`${API_BASE}?api=dev.github_user&username=octocat`)
+  .then(res => res.json())
+  .then(data => console.log('Nama User GitHub:', data.name));
 ```
 
 ### Python
+
 ```python
 import requests
 
-# Contoh 1: Mendapatkan joke
-response = requests.get('https://your-domain.netlify.app/.netlify/functions/universal-proxy?api=fun.joke')
-print(response.json())
+API_BASE = "[https://proxyhexzo.netlify.app/.netlify/functions/proxy](https://proxyhexzo.netlify.app/.netlify/functions/proxy)"
 
-# Contoh 2: GitHub user info
-response = requests.get('https://your-domain.netlify.app/.netlify/functions/universal-proxy?api=dev.github_user&username=octocat')
-print(response.json())
+# GET cuaca di Jakarta
+params = {"api": "weather.current", "location": "Jakarta"}
+response = requests.get(API_BASE, params=params)
+
+if response.ok:
+    print(response.json())
+else:
+    print("Gagal mengambil data cuaca")
 ```
 
 ### cURL
-```bash
-# Mendapatkan informasi IP
-curl "https://your-domain.netlify.app/.netlify/functions/universal-proxy?api=info.ip"
 
-# POST request dengan data
-curl -X POST "https://your-domain.netlify.app/.netlify/functions/universal-proxy?web=https://httpbin.org/post" \
+```bash
+# POST request via proxy
+curl -X POST "[https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https://httpbin.org/post](https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https://httpbin.org/post)" \
   -H "Content-Type: application/json" \
-  -d '{"pesan": "Hello dari Indonesia!"}'
+  -d '{"pesan": "Hello dari cURL"}'
 ```
 
-## 🔧 Instalasi
+\</details\>
 
-### Prasyarat
-- Node.js versi 18 atau lebih baru
-- Akun Netlify (gratis)
+-----
 
-### Langkah-langkah
-1. **Fork repository** ini
-2. **Connect ke Netlify** melalui GitHub
-3. **Deploy otomatis** dengan satu klik
-4. **Gunakan API** dengan URL yang dihasilkan
+## 💬 Kontak & Komunitas
 
-### Environment Variables (Opsional)
-```bash
-# Untuk konfigurasi lanjutan
-NETLIFY_SITE_ID=your-site-id
-NETLIFY_AUTH_TOKEN=your-auth-token
+Punya ide, nemu bug, atau sekadar mau ngobrol?
+
+  * **Buka Issue di GitHub:** [Klik di sini](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/HexZoNetwork/UniversalProxy/issues)
+  * **Gabung Grup Telegram:** [Klik di sini](https://t.me/hexzo_not_devz)
+
+\<div align="center"\>
+\<p\>\<strong\>Dibuat dengan ❤️ oleh HexZo Beginner\</strong\>\</p\>
+\<em\>"Dari Indonesia untuk semua yang butuh API proxy"\</em\>
+\</div\>
+
 ```
-
-## 🛡️ Keamanan
-
-### Fitur Keamanan
-- ✅ **URL Validation**: Validasi URL otomatis
-- ✅ **Input Sanitization**: Sanitasi input otomatis
-- ✅ **Header Filtering**: Filter header berbahaya
-- ✅ **Timeout Protection**: Proteksi timeout
-- ✅ **Rate Limiting**: Batasan rate otomatis
-
-### Best Practices
-```javascript
-// Selalu validasi input
-const url = 'https://api.example.com/data';
-if (isValidUrl(url)) {
-  // Gunakan proxy
-}
 ```
-### 💬 **Komunitas**
-- **Telegram**: [t.me/hexzo_not_devz](https://t.me/wynexishere)
-
-### 🆘 **Support**
-Untuk pertanyaan atau bantuan:
-1. Buka issue di GitHub
-2. Bergabung dengan telegram kami
-## 🏆 Penghargaan
-
-Dibuat dengan ❤️ oleh **HexZo Not Devz** untuk komunitas developer Indonesia.
----
-
-<div align="center">
-  <p>
-    <strong>Made with ❤️ by HexZo Not Devz</strong><br>
-    <em>"From Indonesia, for the world"</em>
-  </p>
-  <p>
-    <a href="https://github.com/HexZoNetwork/UniversalProxy">⭐ Star di GitHub</a> |
-    <a href="https://t.me/wynexishere">🐦 Follow Channel Telegram</a> |
-    <a href="https://t.me/hexzo_not_devz">🎭 Support Di Telegramm</a>
-  </p>
-</div>
