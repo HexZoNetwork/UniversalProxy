@@ -10,8 +10,7 @@
 
 <p align="center">
   <strong>Solusi instan untuk masalah CORS dan akses API yang ribet, dibuat oleh sesama pembelajar.</strong>
-  <br />
-  <em>"Dari pelajar, untuk developer."</em>
+  <br>
 </p>
 
 <p align="center">
@@ -207,4 +206,5 @@ Punya ide, nemu bug?
 
 ```
 ```
+
 
