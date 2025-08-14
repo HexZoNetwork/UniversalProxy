@@ -24,25 +24,19 @@
 
 ## 🌟 Kenapa Pakai Proxy Ini?
 
-Gue bikin ini karena sering banget (dan mungkin Anda juga) mentok sama masalah-masalah ini:
+Gue bikin ini karena sering banget (mungkin lu juga) mentok sama problem ini:
 * **Benci Error CORS:** Capek lihat error `Cross-Origin Resource Sharing` di console? Proxy ini solusinya.
 * **Males Setup Backend:** Butuh data dari API publik tapi males bikin server sendiri cuma buat `fetch`? Pakai ini aja.
 * **Eksplorasi & Belajar:** Cocok banget buat yang lagi belajar ngoding dan mau coba-coba berbagai macam API tanpa ribet.
-* **Prototipe Cepat:** Butuh bukti konsep atau mau bikin demo cepat? Langsung hajar!
-
+* 
 ## ⚡ API Siap Pakai (Live Demo)
 
-Gak perlu instalasi. Langsung pakai endpoint publik di bawah ini untuk semua kebutuhan Anda.
+Gak perlu masang. Langsung pakai api publik untuk semua kebutuhan lo.
 
 ```
 
 [https://proxyhexzo.netlify.app/.netlify/functions/proxy](https://proxyhexzo.netlify.app/.netlify/functions/proxy)
 
-````
-**Contoh Cepat:**
-```bash
-# Mendapatkan fakta kucing acak
-curl "[https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=fun.cat_fact](https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=fun.cat_fact)"
 ````
 
 ## ✨ Fitur Unggulan
@@ -51,17 +45,18 @@ curl "[https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=fun.cat_fact]
 |:--- |:--- |
 | 🔗 **Fleksibel** | Bisa meneruskan request ke mayoritas API publik (REST, JSON, XML). |
 | 🌐 **Anti-CORS** | Didesain khusus untuk jadi "obat" masalah CORS dari origin mana pun. |
-| 🚀 **Cukup Cepat**| Dijalankan di infrastruktur Netlify yang cepat dengan logic *retry* otomatis. |
-| 🛡️ **Validasi Dasar** | Memvalidasi URL tujuan untuk mencegah pemanggilan ke endpoint yang tidak aman. |
-| 👨‍💻 **Ramah Pemula** | Gampang dipakai, dokumentasi jelas, dan ada API bawaan yang seru. |
+| 🚀 **Cukup Cepat**| Lunch Di Netlify yang cepat dengan logic *retry* otomatis. |
+| 🛡️ **Validasi Url** | Ngecek URL target untuk nyegah request ke endpoint yang ga aman/ngatasin absolute link. |
+| 👨‍💻 **Ramah Pemula** | Gampang dipake sama dokumentasi jelas |
+| 🤑 **Nyaris Anti DDoS** | Yah Gmn Yaks Wong ISP Netlify |
 
 -----
 
-## 🚀 Cara Penggunaan
+## 🚀 Cara Make
 
-Ada dua cara utama: pakai **API bawaan** atau **proxy ke URL custom**.
+Ada dua cara utama: pake **API bawaan** atau **proxy ke URL custom**.
 
-### 1\. Menggunakan API Bawaan
+### 1. Menggunakan API Bawaan
 
 Pakai parameter `?api=` diikuti nama API yang tersedia.
 
@@ -72,9 +67,9 @@ fetch('[https://proxyhexzo.netlify.app/.netlify/functions/proxy?api=info.ip](htt
   .then(data => console.log(data));
 ```
 
-### 2\. Proxy ke URL Kustom
+### 2. Proxy ke URL costum
 
-Pakai parameter `?web=` untuk meneruskan request ke URL mana pun.
+Pakai query `?web=` untuk meneruskan request ke URL mana pun.
 
 ```javascript
 // Melakukan POST request ke API testing
@@ -88,27 +83,24 @@ fetch('[https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https://json
 
 -----
 
-## 🔧 Instalasi (Self-Hosting)
+## 🔧 Clone
 
-Kalau Anda mau proxy ini berjalan di akun Netlify pribadi.
+Kalo Mau Self Host Ni Api Di Netlify Wajib Ikuti Langkah Di Bwh.
 
-**Prasyarat:**
+**Syarat:**
 
   * Node.js v18+
   * Akun GitHub & Netlify (yang gratisan cukup)
 
 **Langkah-langkah:**
 
-1.  **Fork** repository ini.
-2.  Di dashboard Netlify, impor proyek dari repository yang baru Anda fork.
-3.  **(PENTING)** Atur **Environment Variables** berikut di `Site settings > Build & deploy > Environment` jika mau pakai notifikasi Telegram:
-      * `TELEGRAM_BOT_TOKEN`: Token bot Telegram Anda.
-      * `TELEGRAM_CHAT_ID`: ID chat tujuan notifikasi.
-4.  Klik **"Deploy site"**. Selesai\! Anda punya URL proxy pribadi.
+1.  **Fork** repo ini.
+2.  Di dashboard Netlify, upload project dari repo gw yg udh lu fork.
+3.  Klik **"Deploy site"**. Selesai!
 
 -----
 
-## 🛡️ Keamanan & Batasan (Harap Dibaca\!)
+## 🛡️ Security
 
 Proyek ini dibuat untuk belajar dan development. Penting untuk tahu batasannya.
 
@@ -116,19 +108,18 @@ Proyek ini dibuat untuk belajar dan development. Penting untuk tahu batasannya.
 |:--- |:---:|:--- |
 | **URL Validation** | ✅ | Hanya URL `http` & `https` valid yang diproses. |
 | **Header Filtering** | ✅ | Beberapa header dari klien disaring untuk keamanan dasar. |
-| **Timeout Protection**| ✅ | Fungsi akan timeout sesuai batas Netlify (sekitar 10 detik). |
 | **Rate Limiting** | ❌ | **BELUM ADA.** Jangan gunakan untuk aplikasi production yang penting. |
 
-### 🚨 **Peringatan Keras**
+### 🚨 **Warn**
 
-Proxy publik yang disediakan **TIDAK MEMILIKI RATE LIMIT**. Artinya, siapa saja bisa memakainya sepuasnya. Gunakan dengan bijak untuk belajar dan prototipe. **Penyalahgunaan akan membuat IP Anda diblokir.**
+Proxy publik yang disediakan **GA MAKE RATE LIMIT**. Artinya, siapa aja bisa make. pake buat belajar dan prototipe aja.
 
 -----
 
 ## 📚 Referensi & Contoh Lengkap
 
-\<details\>
-\<summary\>\<strong\>📂 Klik untuk melihat daftar lengkap API Bawaan\</strong\>\</summary\>
+<details>
+<summary><strong>📂 Klik untuk melihat daftar lengkap API Bawaan\</strong>\</summary>
 
 ### 🔍 Info
 
@@ -156,10 +147,10 @@ Proxy publik yang disediakan **TIDAK MEMILIKI RATE LIMIT**. Artinya, siapa saja 
   - **Current Weather:** `?api=weather.current&location={kota}`
   - **Forecast:** `?api=weather.forecast&lat={latitude}&lon={longitude}`
 
-\</details\>
+</details>
 
-\<details\>
-\<summary\>\<strong\>💻 Klik untuk melihat Contoh Kode Lengkap (JS, Python, cURL)\</strong\>\</summary\>
+<details>
+<summary\>\<strong\>💻 Klik untuk melihat Contoh Kode Lengkap (JS, Python, cURL)\</strong\>\</summary\>
 
 ### JavaScript (Browser)
 
@@ -198,21 +189,22 @@ curl -X POST "[https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https
   -d '{"pesan": "Hello dari cURL"}'
 ```
 
-\</details\>
+</details>
 
 -----
 
 ## 💬 Kontak & Komunitas
 
-Punya ide, nemu bug, atau sekadar mau ngobrol?
+Punya ide, nemu bug?
 
   * **Buka Issue di GitHub:** [Klik di sini](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/HexZoNetwork/UniversalProxy/issues)
-  * **Gabung Grup Telegram:** [Klik di sini](https://t.me/hexzo_not_devz)
+  * **Join Ch Tele:** [Klik di sini](https://t.me/hexzo_not_devz)
 
-\<div align="center"\>
-\<p\>\<strong\>Dibuat dengan ❤️ oleh HexZo Beginner\</strong\>\</p\>
-\<em\>"Dari Indonesia untuk semua yang butuh API proxy"\</em\>
-\</div\>
+<div align="center">
+<p\><strong>Dibuat dengan ❤️ oleh HexZo Passive</strong></p>
+<em>"Dari Indonesia untuk semua yang butuh API proxy"</em>
+</div>
 
 ```
 ```
+
