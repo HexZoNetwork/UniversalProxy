@@ -187,7 +187,7 @@ else:
 # POST request via proxy
 curl -X POST "[https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https://httpbin.org/post](https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https://httpbin.org/post)" \
   -H "Content-Type: application/json" \
-  -d '{"pesan": "Hello dari cURL"}'
+  -d '{"pesan": "Hello dari HexZo"}'
 ```
 
 \</details\>
