@@ -22,7 +22,10 @@
 
 ---
 
-## 🌟 Kenapa Pakai Proxy Ini?
+# 🚀 Universal API Proxy — by HexZo Beginner
+
+## Description
+Universal API proxy that can handle all types of APIs with comprehensive error handling.
 
 Gue bikin ini karena sering banget (dan mungkin Anda juga) mentok sama masalah-masalah ini:
 * **Benci Error CORS:** Capek lihat error `Cross-Origin Resource Sharing` di console? Proxy ini solusinya.
