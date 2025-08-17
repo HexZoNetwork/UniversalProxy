@@ -34,7 +34,7 @@ Gak perlu masang. Langsung pakai api publik untuk semua kebutuhan lo.
 
 ```
 
-[https://proxyhexzo.netlify.app/.netlify/functions/proxy](https://proxyhexzo.netlify.app/.netlify/functions/proxy)
+https://proxyhexzo.netlify.app/.netlify/functions/proxy
 
 ````
 
@@ -118,7 +118,7 @@ Proxy publik yang disediakan **GA MAKE RATE LIMIT**. Artinya, siapa aja bisa mak
 ## 📚 Referensi & Contoh Lengkap
 
 <details>
-<summary><strong>📂 Klik untuk melihat daftar lengkap API Bawaan\</strong>\</summary>
+<summary><strong>📂 Daftar API</strong></summary>
 
 ### 🔍 Info
 
@@ -149,7 +149,7 @@ Proxy publik yang disediakan **GA MAKE RATE LIMIT**. Artinya, siapa aja bisa mak
 </details>
 
 <details>
-<summary\>\<strong\>💻 Klik untuk melihat Contoh Kode Lengkap (JS, Python, cURL)\</strong\>\</summary\>
+<summary><strong>💻 Daftar Base API (JS, Python, cURL)</strong></summary>
 
 ### JavaScript (Browser)
 
@@ -206,6 +206,7 @@ Punya ide, nemu bug?
 
 ```
 ```
+
 
 
 
