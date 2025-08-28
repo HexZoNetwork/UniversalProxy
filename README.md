@@ -9,26 +9,26 @@
 </p>
 
 <p align="center">
-  <strong>Solusi instan untuk masalah CORS dan akses API yang ribet,Made By HexZo.</strong>
+  <strong>Solusi ejet buat masalah CORS dan akses API yang ribet,Made By HexZo.</strong>
   <br>
 </p>
 
 <p align="center">
   <a href="https://github.com/HexZoNetwork/UniversalProxy/stargazers"><img src="https://img.shields.io/github/stars/HexZoNetwork/UniversalProxy?style=for-the-badge&logo=github&color=gold" alt="GitHub Stars"></a>
   <a href="https://github.com/HexZoNetwork/UniversalProxy/issues"><img src="https://img.shields.io/github/issues/HexZoNetwork/UniversalProxy?style=for-the-badge&logo=github&color=red" alt="GitHub Issues"></a>
-  <a href="https://t.me/hexzo_not_devz"><img src="https://img.shields.io/badge/Komunitas-Telegram-blue?style=for-the-badge&logo=telegram" alt="Telegram Community"></a>
+  <a href="https://t.me/hexzo_not_devz"><img src="https://img.shields.io/badge/Komunitas-Telegram-blue?style=for-the-badge&logo=telegram" alt="Telegram"></a>
 </p>
 
 ---
 
-## 🌟 Kenapa Pakai Proxy Ini?
+## 🌟 Kenapa pake Proxy Ini?
 
 Gue bikin ini karena sering banget (mungkin lu juga) mentok sama problem ini:
 * **Benci Error CORS:** Capek lihat error `Cross-Origin Resource Sharing` di console? Proxy ini solusinya.
 * **Males Setup Backend:** Butuh data dari API publik tapi males bikin server sendiri cuma buat `fetch`? Pakai ini aja.
 * **Eksplorasi & Belajar:** Cocok banget buat yang lagi belajar ngoding dan mau coba-coba berbagai macam API tanpa ribet.
 * 
-## ⚡ API Siap Pakai (Live Demo)
+## ⚡ API Siap Pakai
 
 Gak perlu masang. Langsung pakai api publik untuk semua kebutuhan lo.
 
@@ -57,7 +57,7 @@ Ada dua cara utama: pake **API bawaan** atau **proxy ke URL custom**.
 
 ### 1. Menggunakan API Bawaan
 
-Pakai parameter `?api=` diikuti nama API yang tersedia.
+Pakai parameter `?api=` Sama EndPoint
 
 ```javascript
 // Mendapatkan info IP publik
@@ -95,7 +95,11 @@ Kalo Mau Self Host Ni Api Di Netlify Wajib Ikuti Langkah Di Bwh.
 
 1.  **Fork** repo ini.
 2.  Di dashboard Netlify, upload project dari repo gw yg udh lu fork.
-3.  Klik **"Deploy site"**. Selesai!
+3.  **"Deploy site"** And Done
+**Atau**
+1.  Git Clone Repo Ini Atau Download Source.
+2.  Upload Ke Netlify Make Netlify-Cli Biar Gampang.
+3.  Deploy And Done
 
 -----
 
@@ -115,7 +119,7 @@ Proxy publik yang disediakan **GA MAKE RATE LIMIT**. Artinya, siapa aja bisa mak
 
 -----
 
-## 📚 Referensi & Contoh Lengkap
+## 📚 Referensi & Contoh
 
 <details>
 <summary><strong>📂 Daftar API</strong></summary>
@@ -149,9 +153,9 @@ Proxy publik yang disediakan **GA MAKE RATE LIMIT**. Artinya, siapa aja bisa mak
 </details>
 
 <details>
-<summary><strong>💻 Daftar Base API (JS, Python, cURL)</strong></summary>
+<summary><strong>💻 Contoh Cara Make API Built In (JS, Python, cURL)</strong></summary>
 
-### JavaScript (Browser)
+### JavaScript
 
 ```javascript
 const API_BASE = '[https://proxyhexzo.netlify.app/.netlify/functions/proxy](https://proxyhexzo.netlify.app/.netlify/functions/proxy)';
@@ -196,16 +200,16 @@ curl -X POST "[https://proxyhexzo.netlify.app/.netlify/functions/proxy?web=https
 
 Punya ide, nemu bug?
 
-  * **Buka Issue di GitHub:** [Klik di sini](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/HexZoNetwork/UniversalProxy/issues)
-  * **Join Ch Tele:** [Klik di sini](https://t.me/hexzo_not_devz)
+  * **Issue GitHub:** [Klik Here](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/HexZoNetwork/UniversalProxy/issues)
+  * **Join Ch Tele:** [Klik Me](https://t.me/hexzo_not_devz)
 
 <div align="center">
-<p\><strong>Dibuat dengan ❤️ oleh HexZo Passive</strong></p>
-<em>"Dari Indonesia untuk semua yang butuh API proxy"</em>
+<p\><strong>Made with ❤️ By HexZo Beginner</strong></p>
 </div>
 
 ```
 ```
+
 
 
 
