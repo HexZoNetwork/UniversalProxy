@@ -16,7 +16,7 @@
 <p align="center">
   <a href="https://github.com/HexZoNetwork/UniversalProxy/stargazers"><img src="https://img.shields.io/github/stars/HexZoNetwork/UniversalProxy?style=for-the-badge&logo=github&color=gold" alt="GitHub Stars"></a>
   <a href="https://github.com/HexZoNetwork/UniversalProxy/issues"><img src="https://img.shields.io/github/issues/HexZoNetwork/UniversalProxy?style=for-the-badge&logo=github&color=red" alt="GitHub Issues"></a>
-  <a href="https://t.me/hexzo_not_devz"><img src="https://img.shields.io/badge/Komunitas-Telegram-blue?style=for-the-badge&logo=telegram" alt="Telegram"></a>
+  <a href="https://t.me/hexzo_not_devz"><img src="https://img.shields.io/badge/TG-HexZo-blue?style=for-the-badge&logo=telegram" alt="Telegram"></a>
 </p>
 
 ---
@@ -209,6 +209,7 @@ Punya ide, nemu bug?
 
 ```
 ```
+
 
 
 
